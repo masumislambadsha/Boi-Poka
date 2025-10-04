@@ -1,5 +1,7 @@
 // import React, { use } from 'react';
 
+import { Star } from "lucide-react";
+
 const Book = ({singleBook}) => {
 
 
@@ -27,8 +29,8 @@ const Book = ({singleBook}) => {
     </h2>
     <p className="font-medium opacity-80 text-lg text-[#131313] mb-3  ">By : {author}</p>
     <div className="card-actions justify-between">
-      <div className="badge badge-outline">{category}</div>
-      <div className="badge badge-outline">{rating}</div>
+      <div className="font-medium opacity-80 text-[17px]">{category}</div>
+      <div className="flex gap-1 text-[17px]">{rating} <span className="opacity-70"><Star></Star></span> </div>
     </div>
   </div>
 </div>
