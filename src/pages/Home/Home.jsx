@@ -1,12 +1,9 @@
-import { Suspense, useEffect, useState } from "react";
 import Banner from "../../components/Header/Banner/Banner";
 import Books from "../Books/Books";
 import Book from "../Book/Book";
 import { useLoaderData } from "react-router";
 
 const Home = () => {
-  const [allBooks, setAllBooks] = useState([]);
-
   const data = useLoaderData()
 
 
