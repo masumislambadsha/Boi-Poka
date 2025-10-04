@@ -7,6 +7,7 @@ export const router =createBrowserRouter([
     path:'/',
     Component:Root,
     errorElement:<ErrorPage/>,
+    // HydrateFallback:<FallBack/>,
     children:[
       {
         index:true,

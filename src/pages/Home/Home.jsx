@@ -8,7 +8,6 @@ const Home = () => {
   const [allBooks, setAllBooks] = useState([]);
 
   const data = useLoaderData()
-  console.log(data);
 
 
   //  useEffect(()=>{
@@ -18,17 +17,13 @@ const Home = () => {
   //     setAllBooks(data)})
   //  },[])
 
-  const bookPromise = fetch("booksData.json").then((res) => res.json());
+  // const bookPromise = fetch("booksData.json").then((res) => res.json());
 
   return (
     <div>
       <Banner></Banner>
-      <Books></Books>
-      <Suspense fallback={"loading"}>
-        <Book
-        bookPromise={bookPromise}
-        ></Book>
-      </Suspense>
+      <Books data={data}></Books>
+
     </div>
   );
 };
