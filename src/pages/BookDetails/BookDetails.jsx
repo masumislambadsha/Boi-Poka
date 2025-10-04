@@ -1,8 +1,9 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router";
+import { addToStoredDB } from "../../Utilitiy/addToDB";
 
 const BookDetails = () => {
-  const { id } = useParams(); // route: /books/:id [web:7]
+  const { id } = useParams();
   const data = useLoaderData(); // preloaded list from loader [web:4]
 
   const singleBook = data.find((b) => b.bookId === parseInt(id, 10)); // simple match [web:4]
@@ -20,6 +21,10 @@ const BookDetails = () => {
     publisher,
     yearOfPublishing,
   } = singleBook; // destructure for clarity [web:4]
+
+  const handleMarkAsRead =(id) =>{
+    addToStoredDB(id)
+  }
 
   return (
     <section className="container mx-auto px-4 py-10">
@@ -100,7 +105,7 @@ const BookDetails = () => {
 
           {/* actions */}
           <div className="mt-8 flex md:gap-4">
-            <button className="btn px-6 py-3 rounded-lg">
+            <button onClick={()=>handleMarkAsRead(id)} className="btn px-6 py-3 rounded-lg">
               Mark as Read
             </button>
             <button className="btn bg-[#59C6D2] border-0 text-white hover:opacity-90 md:px-6 py-3 rounded-lg">
