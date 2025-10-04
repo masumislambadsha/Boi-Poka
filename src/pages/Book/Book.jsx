@@ -10,13 +10,13 @@ const Book = ({singleBook}) => {
 
   return (
     <Link to={`/bookDetails/${bookId}`}>
-    <div className="card bg-base-100 w-96 shadow-sm border-1 border-gray-200 rounded-2xl px-3 pt-5 ">
-  <figure>
+    <div className="card bg-base-300 w-[320px] h-[510px] content-center md:w-96 shadow-sm border-1 border-gray-200 rounded-2xl px-3 pt-5 ">
+
     <img
-    className="w-[160px] h-[250px] rounded-xl"
+    className="w-[160px] mx-auto h-[250px] rounded-xl"
       src={image}
       alt="Shoes" />
-  </figure>
+
 
   <div className="card-body">
     <div className="flex gap-10 ml-2 mt-2 font-[500] text-lg text-[#23BE0A]">
