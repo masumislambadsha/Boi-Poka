@@ -6,6 +6,7 @@ const links = (
   <>
     <Link to="/" className="btn btn-ghost">Home</Link>
     <Link to="/about" className="btn btn-ghost">About</Link>
+    <Link to="/readList" className="btn btn-ghost">Read List</Link>
   </>
 );
 

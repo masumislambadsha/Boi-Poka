@@ -6,7 +6,7 @@ import { Link } from "react-router";
 const Book = ({singleBook}) => {
 
 
-  const {bookName,author,image,category,rating,tags,bookId } = singleBook
+  const {bookName,author,image,category,rating,tags,bookId,totalPages } = singleBook
 
   return (
     <Link to={`/bookDetails/${bookId}`}>
@@ -30,6 +30,8 @@ const Book = ({singleBook}) => {
 
     </h2>
     <p className="font-medium opacity-80 text-lg text-[#131313] mb-3  ">By : {author}</p>
+    <p className="font-medium opacity-80 text-lg text-[#131313] mb-3  ">Pages :  {totalPages}</p>
+
     <div className="card-actions justify-between border-t-1 border-dashed pt-4 border-gray-300">
       <div className="font-medium opacity-80 text-[17px]">{category}</div>
       <div className="flex gap-1 text-[17px]">{rating} <span className="opacity-70"><Star></Star></span> </div>
