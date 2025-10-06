@@ -28,14 +28,10 @@ const BookDetails = () => {
 
   const handleMarkAsRead = (id) => {
     addToStoredDB(id);
-    MySwal.fire({
-      title: <p>Hello World</p>,
-      didOpen: () => {
-        // `MySwal` is a subclass of `Swal` with all the same instance & static methods
-        MySwal.showLoading();
-      },
-    }).then(() => {
-      return MySwal.fire(<p>Shorthand works too</p>);
+    Swal.fire({
+      title: 'Marked As Read',
+      text: "You have read the book",
+      icon: "success",
     });
   };
 
