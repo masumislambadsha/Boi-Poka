@@ -1,6 +1,10 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router";
 import { addToStoredDB } from "../../Utilitiy/addToDB";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -20,16 +24,24 @@ const BookDetails = () => {
     totalPages,
     publisher,
     yearOfPublishing,
-  } = singleBook; // destructure for clarity [web:4]
+  } = singleBook;
 
-  const handleMarkAsRead =(id) =>{
-    addToStoredDB(id)
-  }
+  const handleMarkAsRead = (id) => {
+    addToStoredDB(id);
+    MySwal.fire({
+      title: <p>Hello World</p>,
+      didOpen: () => {
+        // `MySwal` is a subclass of `Swal` with all the same instance & static methods
+        MySwal.showLoading();
+      },
+    }).then(() => {
+      return MySwal.fire(<p>Shorthand works too</p>);
+    });
+  };
 
   return (
     <section className="container mx-auto px-4 py-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-
         <div className="flex justify-center lg:justify-start">
           <div className="relative">
             <img
@@ -105,7 +117,10 @@ const BookDetails = () => {
 
           {/* actions */}
           <div className="mt-8 flex md:gap-4">
-            <button onClick={()=>handleMarkAsRead(id)} className="btn px-6 py-3 rounded-lg">
+            <button
+              onClick={() => handleMarkAsRead(id)}
+              className="btn px-6 py-3 rounded-lg"
+            >
               Mark as Read
             </button>
             <button className="btn bg-[#59C6D2] border-0 text-white hover:opacity-90 md:px-6 py-3 rounded-lg">
