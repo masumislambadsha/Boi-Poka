@@ -3,15 +3,16 @@ import { useLoaderData, useParams } from "react-router";
 import { addToStoredDB } from "../../Utilitiy/addToDB";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { toast } from "react-toastify";
 
 const MySwal = withReactContent(Swal);
 
 const BookDetails = () => {
   const { id } = useParams();
-  const data = useLoaderData(); // preloaded list from loader [web:4]
+  const data = useLoaderData();
 
-  const singleBook = data.find((b) => b.bookId === parseInt(id, 10)); // simple match [web:4]
-  if (!singleBook) return null; // basic guard [web:4]
+  const singleBook = data.find((b) => b.bookId === parseInt(id, 10));
+  if (!singleBook) return null;
 
   const {
     bookName,
@@ -25,11 +26,14 @@ const BookDetails = () => {
     publisher,
     yearOfPublishing,
   } = singleBook;
+  const handleWishList = () => {
+    toast.success("Added To Wishlist");
+  };
 
   const handleMarkAsRead = (id) => {
     addToStoredDB(id);
     Swal.fire({
-      title: 'Marked As Read',
+      title: "Marked As Read",
       text: "You have read the book",
       icon: "success",
     });
@@ -119,7 +123,10 @@ const BookDetails = () => {
             >
               Mark as Read
             </button>
-            <button className="btn bg-[#59C6D2] border-0 text-white hover:opacity-90 md:px-6 py-3 rounded-lg">
+            <button
+              onClick={() => handleWishList(id)}
+              className="btn bg-[#59C6D2] border-0 text-white hover:opacity-90 md:px-6 py-3 rounded-lg"
+            >
               Add to Wishlist
             </button>
           </div>

@@ -10,7 +10,7 @@ const Book = ({singleBook}) => {
 
   return (
     <Link to={`/bookDetails/${bookId}`}>
-    <div className="card bg-base-300 w-[320px] h-[510px] content-center md:w-96 shadow-sm border-1 border-gray-200 rounded-2xl px-3 pt-5 ">
+    <div className="card bg-base-300 w-[320px] h-[580px] content-center md:w-96 shadow-sm border-1 border-gray-200 rounded-2xl px-3 pt-5 ">
 
     <img
     className="w-[160px] mx-auto h-[250px] rounded-xl"
@@ -32,7 +32,8 @@ const Book = ({singleBook}) => {
     <p className="font-medium opacity-80 text-lg text-[#131313] mb-3  ">By : {author}</p>
     <p className="font-medium opacity-80 text-lg text-[#131313] mb-3  ">Pages :  {totalPages}</p>
 
-    <div className="card-actions justify-between border-t-1 border-dashed pt-4 border-gray-300">
+    <div className="border-t-1 border-dashed pt-4 border-gray-300"></div>
+    <div className="card-actions justify-between">
       <div className="font-medium opacity-80 text-[17px]">{category}</div>
       <div className="flex gap-1 text-[17px]">{rating} <span className="opacity-70"><Star></Star></span> </div>
     </div>
