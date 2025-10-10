@@ -21,7 +21,7 @@ const addToStoredDB =(id) =>{
       console.log(storedBooksData);
       const data = JSON.stringify(storedBooksData)
       localStorage.setItem('readList', data)
-
+ 
     }
 }
 export {addToStoredDB, getStoredBooks}
